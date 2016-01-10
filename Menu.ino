@@ -155,6 +155,7 @@ void dumpFRAM()
       initgees = Gmax / 100.0; // highest Gees in first 10 measurements
       Gmax = 0.0; // to get the next highest acceleration
     }
+    
     gees = amount / 100.0; // acceleration is stored in Gs X 100
     while(Serial.available() != 0) {}
     Serial.print(flighttime, 2); Serial.print('\t'); Serial.print(height); Serial.print('\t'); Serial.println(gees);
@@ -172,7 +173,7 @@ void dumpFRAM()
   Serial.print("Sea level atmospheric pressure set to "); Serial.print(retrieve_pressure(atmosAdd)); Serial.println(" millibars.");
   Serial.print("Ground level = "); Serial.print(retrieve(groundAdd)); Serial.println(" feet.");
   Serial.print("Launch temperature = "); Serial.print(retrieve(tempAdd)); Serial.println(" degrees Fahrenheit.");
-  Serial.print("Acceleration on launch: "); Serial.print(initgees, 2); Serial.println(" gees.");
+  Serial.print("Acceleration on launch = "); Serial.print(initgees, 2); Serial.println(" gees.");
   Serial.print("Maximum post-launch acceleration = "); Serial.print(maxgees, 2); Serial.print(" gees at "); Serial.print((Gmaxcount * timeint), 2); Serial.println(" seconds.");
   Serial.print("Maximum altitude = "); Serial.print(retrieve(altAdd)); Serial.println(" feet");
   Serial.print("Maximum velocity = "); Serial.print(retrieve(speedAdd)); Serial.println(" mi/hr");
