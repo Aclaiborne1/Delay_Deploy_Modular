@@ -77,7 +77,7 @@ void getgroundlevel()
   floatground = groundacc / 10.0; // gets average value
   groundlevel = 3.2808 * floatground; // converting meters to feet
   
-  intground = floatground + 0.5;
+  intground = int(groundlevel) + 0.5;
   store(intground, groundAdd); // store for posterity
 } 
 
@@ -151,9 +151,16 @@ int apogee()
   {
     temp = retrieve(altstart + dataindex);
     if (temp > mheight)
+    {
+      mheight3 = mheight2;
+      mheight2 = mheight;
       mheight = temp;
+    }
     if ((temp < mheight) && (temp > mheight2))
+    {
+      mheight3 = mheight2;
       mheight2 = temp;
+    }
     if ((temp < mheight) && (temp < mheight2) && (temp > mheight3))
       mheight3 = temp;
     dataindex += 2; //two bytes to make an integer
