@@ -77,7 +77,7 @@ void getgroundlevel()
   floatground = groundacc / 10.0; // gets average value
   groundlevel = 3.2808 * floatground; // converting meters to feet
   
-  intground = int(groundlevel) + 0.5;
+  intground = groundlevel + 0.5; // force float to integer
   store(intground, groundAdd); // store for posterity
 } 
 
